@@ -84,6 +84,38 @@
 
 (function (platformus) {
   platformus.ui = platformus.ui || {};
+  platformus.initializers = platformus.initializers || [];
+  platformus.initializers.push(
+    {
+      action: function () {
+        if ($("form").length == 0) {
+          return;
+        }
+
+        $(window).on("beforeunload", function () {
+          if (platformus.ui.needsSaveConfirmation) {
+            return confirm("Your changes might be lost!");
+          }
+        });
+
+        // TODO: add another controls change events
+        $(document.body).on("change", "input, textarea", function () {
+          if ($(this).attr("type") != "file") {
+            platformus.ui.needsSaveConfirmation = true;
+          }
+        });
+
+        $(document.body).on("click", "button[type='submit']", function () {
+          platformus.ui.needsSaveConfirmation = null;
+        });
+      },
+      priority: 0
+    }
+  );
+})(window.platformus = window.platformus || {});
+
+(function (platformus) {
+  platformus.ui = platformus.ui || {};
   platformus.ui.initializeTinyMce = function (identity) {
     tinymce.init(
       {

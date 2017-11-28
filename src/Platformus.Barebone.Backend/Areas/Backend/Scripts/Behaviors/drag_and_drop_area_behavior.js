@@ -1,9 +1,9 @@
-// Copyright © 2015 Dmitry Sikorsky. All rights reserved.
+// Copyright © 2017 Dmitry Sikorsky. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 (function (platformus) {
-  platformus.fileUploader = {};
-  platformus.fileUploader.fileSelected = function () {
+  platformus.dragAndDropArea = {};
+  platformus.dragAndDropArea.selected = function () {
     document["form"].submit();
   };
 
@@ -19,24 +19,24 @@
       return;
     }
 
-    var filesDragAndDropArea = $("#filesDragAndDropArea");
+    var dragAndDropArea = $("#dragAndDropArea");
 
-    if (filesDragAndDropArea.length == 0) {
+    if (dragAndDropArea.length == 0) {
       return;
     }
 
-    filesDragAndDropArea[0].ondragover = function () {
-      filesDragAndDropArea.addClass("files-drag-and-drop-area--dragging");
+    dragAndDropArea[0].ondragover = function () {
+      dragAndDropArea.addClass("drag-and-drop-area--dragging");
       return false;
     };
 
-    filesDragAndDropArea[0].ondragleave = function () {
-      filesDragAndDropArea.removeClass("files-drag-and-drop-area--dragging");
+    dragAndDropArea[0].ondragleave = function () {
+      dragAndDropArea.removeClass("drag-and-drop-area--dragging");
       return false;
     };
 
-    filesDragAndDropArea[0].ondrop = function (event) {
-      filesDragAndDropArea.removeClass("files-drag-and-drop-area--dragging");
+    dragAndDropArea[0].ondrop = function (event) {
+      dragAndDropArea.removeClass("drag-and-drop-area--dragging");
 
       var formData = new FormData();
 
@@ -46,7 +46,7 @@
 
       $.ajax(
         {
-          url: "/backend/filemanager/create",
+          url: dragAndDropArea.find("form").attr("action"),
           data: formData,
           processData: false,
           contentType: false,
