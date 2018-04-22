@@ -8,7 +8,6 @@ namespace Platformus.Security.Backend.ViewModels.Account
 {
   public class SignInViewModel : ViewModelBase
   {
-    public int? Id { get; set; }
     public string Next { get; set; }
 
     [Display(Name = "Email")]
