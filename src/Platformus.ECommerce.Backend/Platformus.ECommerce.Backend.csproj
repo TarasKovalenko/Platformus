@@ -4,7 +4,7 @@
     <Authors>Dmitry Sikorsky</Authors>
     <Copyright>Copyright © 2015 Dmitry Sikorsky</Copyright>
     <Description>The Platformus.ECommerce extension component.</Description>
-    <VersionPrefix>1.0.0-beta4</VersionPrefix>
+    <VersionPrefix>1.0.0-beta5</VersionPrefix>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>Platformus.ECommerce.Backend</AssemblyName>
     <PackageId>Platformus.ECommerce.Backend</PackageId>
@@ -14,6 +14,16 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Areas\Backend\Views\**;wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Areas\Backend\Views\Attributes\CreateOrEdit.cshtml" />
+    <None Remove="Areas\Backend\Views\Attributes\Index.cshtml" />
+    <None Remove="Areas\Backend\Views\ECommerce\_AttributeSelectorForm.cshtml" />
+    <None Remove="Areas\Backend\Views\Features\CreateOrEdit.cshtml" />
+    <None Remove="Areas\Backend\Views\Features\Index.cshtml" />
+    <None Remove="Areas\Backend\Views\Shared\_Attribute.cshtml" />
+    <None Remove="Areas\Backend\Views\Shared\_Feature.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
