@@ -14,7 +14,6 @@ using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Processing.Transforms;
 
 namespace Platformus.Images.Controllers
 {
@@ -72,8 +71,8 @@ namespace Platformus.Images.Controllers
 
     private async Task<LoadImageFromUrlResult> LoadImageFromUrlAsync(string url)
     {
-      if (!url.Contains("http://") && !url.Contains("http://"))
-        url = $"{this.Request.Scheme}://{this.Request.Host}" + url;
+      if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+        url = $"{this.Request.Scheme}://{this.Request.Host}{url}";
 
       try
       {
@@ -83,7 +82,7 @@ namespace Platformus.Images.Controllers
           return new LoadImageFromUrlResult(Image.Load(inputStream, out IImageFormat imageFormat), imageFormat);
       }
 
-      catch
+      catch (Exception e)
       {
         return null;
       }

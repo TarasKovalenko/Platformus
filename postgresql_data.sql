@@ -58,11 +58,12 @@ INSERT INTO public."Configurations" ("Id","Code","Name") VALUES (2,'Globalizatio
 ALTER SEQUENCE "Configurations_Id_seq" RESTART WITH 3;
 INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (1,1,'SmtpServer','SMTP server','test',1);
 INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (2,1,'SmtpPort','SMTP port','25',2);
-INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (3,1,'SmtpLogi','SMTP logi','test',3);
-INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (4,1,'SmtpPassword','SMTP password','test',4);
-INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (5,1,'SmtpSenderEmail','SMTP sender email','test',5);
-INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (6,1,'SmtpSenderName','SMTP sender name','test',6);
-INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (7,2,'SpecifyCultureInUrl','Specify culture in URL','yes',1);
+INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (3,1,'SmtpUseSsl','SMTP use SSL','no',3);
+INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (4,1,'SmtpLogin','SMTP login','test',4);
+INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (5,1,'SmtpPassword','SMTP password','test',5);
+INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (6,1,'SmtpSenderEmail','SMTP sender email','test',6);
+INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (7,1,'SmtpSenderName','SMTP sender name','test',7);
+INSERT INTO public."Variables" ("Id","ConfigurationId","Code","Name","Value","Position") VALUES (8,2,'SpecifyCultureInUrl','Specify culture in URL','yes',1);
 ALTER SEQUENCE "Variables_Id_seq" RESTART WITH 8;
 
 --
@@ -83,16 +84,18 @@ INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassNam
 INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (4,'integer','integerNumber','Integer number',4);
 INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (5,'decimal','decimalNumber','Decimal number',5);
 INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (6,'integer','booleanFlag','Boolean flag',6);
-INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (7,'string','image','Image',7);
-INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (8,'datetime','date','Date',8);
+INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (7,'datetime','date','Date',7);
+INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (8,'string','image','Image',8);
+INSERT INTO public."DataTypes" ("Id","StorageDataType","JavaScriptEditorClassName","Name","Position") VALUES (9,'string','sourceCode','Source code',9);
 ALTER SEQUENCE "DataTypes_Id_seq" RESTART WITH 9;
 INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (1,1,'checkbox','IsRequired','Is required');
 INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (2,1,'numericTextBox','MaxLength','Max length');
 INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (3,2,'checkbox','IsRequired','Is required');
 INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (4,2,'numericTextBox','MaxLength','Max length');
-INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (5,7,'numericTextBox','Width','Width');
-INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (6,7,'numericTextBox','Height','Height');
-INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (7,8,'checkbox','IsRequired','Is required');
+INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (5,7,'checkbox','IsRequired','Is required');
+INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (6,8,'numericTextBox','Width','Width');
+INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (7,8,'numericTextBox','Height','Height');
+INSERT INTO public."DataTypeParameters" ("Id","DataTypeId","JavaScriptEditorClassName","Code","Name") VALUES (8,9,'textBox','Mode','Mode');
 ALTER SEQUENCE "DataTypeParameters_Id_seq" RESTART WITH 8;
 
 --

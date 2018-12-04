@@ -7,7 +7,7 @@ using Platformus.ECommerce.Events;
 
 namespace Platformus.ECommerce.EventHandlers
 {
-  public class ObjectDeletedEventHandler : IProductDeletedEventHandler
+  public class ProductDeletedEventHandler : IProductDeletedEventHandler
   {
     public int Priority => 1000;
 

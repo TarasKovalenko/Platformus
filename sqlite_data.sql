@@ -52,11 +52,12 @@ INSERT INTO "Configurations" VALUES (1,'Email','Email');
 INSERT INTO "Configurations" VALUES (2,'Globalization','Globalization');
 INSERT INTO "Variables" VALUES (1,1,'SmtpServer','SMTP server','test',1);
 INSERT INTO "Variables" VALUES (2,1,'SmtpPort','SMTP port','25',2);
-INSERT INTO "Variables" VALUES (3,1,'SmtpLogin','SMTP login','test',3);
-INSERT INTO "Variables" VALUES (4,1,'SmtpPassword','SMTP password','test',4);
-INSERT INTO "Variables" VALUES (5,1,'SmtpSenderEmail','SMTP sender email','test',5);
-INSERT INTO "Variables" VALUES (6,1,'SmtpSenderName','SMTP sender name','test',6);
-INSERT INTO "Variables" VALUES (7,2,'SpecifyCultureInUrl','Specify culture in URL','yes',1);
+INSERT INTO "Variables" VALUES (3,1,'SmtpUseSsl','SMTP use SSL','no',3);
+INSERT INTO "Variables" VALUES (4,1,'SmtpLogin','SMTP login','test',4);
+INSERT INTO "Variables" VALUES (5,1,'SmtpPassword','SMTP password','test',5);
+INSERT INTO "Variables" VALUES (6,1,'SmtpSenderEmail','SMTP sender email','test',6);
+INSERT INTO "Variables" VALUES (7,1,'SmtpSenderName','SMTP sender name','test',7);
+INSERT INTO "Variables" VALUES (8,2,'SpecifyCultureInUrl','Specify culture in URL','yes',1);
 
 --
 -- Extension: Platformus.Globalization
@@ -75,15 +76,17 @@ INSERT INTO "DataTypes" VALUES (3,'string','html','Html',3);
 INSERT INTO "DataTypes" VALUES (4,'integer','integerNumber','Integer number',4);
 INSERT INTO "DataTypes" VALUES (5,'decimal','decimalNumber','Decimal number',5);
 INSERT INTO "DataTypes" VALUES (6,'integer','booleanFlag','Boolean flag',6);
-INSERT INTO "DataTypes" VALUES (7,'string','image','Image',7);
-INSERT INTO "DataTypes" VALUES (8,'datetime','date','Date',8);
+INSERT INTO "DataTypes" VALUES (7,'datetime','date','Date',7);
+INSERT INTO "DataTypes" VALUES (8,'string','image','Image',8);
+INSERT INTO "DataTypes" VALUES (9,'string','sourceCode','Source code',9);
 INSERT INTO "DataTypeParameters" VALUES (1,1,'checkbox','IsRequired','Is required');
 INSERT INTO "DataTypeParameters" VALUES (2,1,'numericTextBox','MaxLength','Max length');
 INSERT INTO "DataTypeParameters" VALUES (3,2,'checkbox','IsRequired','Is required');
 INSERT INTO "DataTypeParameters" VALUES (4,2,'numericTextBox','MaxLength','Max length');
-INSERT INTO "DataTypeParameters" VALUES (5,7,'numericTextBox','Width','Width');
-INSERT INTO "DataTypeParameters" VALUES (6,7,'numericTextBox','Height','Height');
-INSERT INTO "DataTypeParameters" VALUES (7,8,'checkbox','IsRequired','Is required');
+INSERT INTO "DataTypeParameters" VALUES (5,7,'checkbox','IsRequired','Is required');
+INSERT INTO "DataTypeParameters" VALUES (6,8,'numericTextBox','Width','Width');
+INSERT INTO "DataTypeParameters" VALUES (7,8,'numericTextBox','Height','Height');
+INSERT INTO "DataTypeParameters" VALUES (8,9,'textBox','Mode','Mode');
 
 --
 -- Extension: Platformus.Forms

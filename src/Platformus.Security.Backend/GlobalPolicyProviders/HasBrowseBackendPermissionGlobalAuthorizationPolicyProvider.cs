@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Platformus.Security
+namespace Platformus.Security.Backend
 {
   public class HasBrowseBackendPermissionGlobalAuthorizationPolicyProvider : IGlobalAuthorizationPolicyProvider
   {
@@ -21,6 +21,7 @@ namespace Platformus.Security
         }
       );
 
+      authorizationPolicyBuilder.AddAuthenticationSchemes(BackendCookieAuthenticationDefaults.AuthenticationScheme);
       return authorizationPolicyBuilder.Build();
     }
   }
