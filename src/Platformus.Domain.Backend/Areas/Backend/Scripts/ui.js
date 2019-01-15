@@ -12,7 +12,7 @@
     }
 
     else {
-      if (getPropertyDataTypeStorageDataType(propertyDataTypeId) == "string") {
+      if (getDataTypeById(propertyDataTypeId).storageDataType === "string") {
         $("#isPropertyLocalizable").show();
       }
 
@@ -23,7 +23,7 @@
       $("#isPropertyVisibleInList").show();
     }
 
-    platformus.dataTypeParameterEditors.sync(propertyDataTypeId);
+    platformus.parameterEditors.sync(getDataTypeById(propertyDataTypeId));
   };
 
   platformus.ui.relationClassIdChanged = function () {
@@ -60,17 +60,17 @@
     return $("#propertyDataTypeId").val();
   }
 
-  function getPropertyDataTypeStorageDataType(propertyDataTypeId) {
+  function getSelectedRelationClassId() {
+    return $("#relationClassId").val();
+  }
+
+  function getDataTypeById(dataTypeId) {
     for (var i = 0; i < dataTypes.length; i++) {
-      if (dataTypes[i].id == propertyDataTypeId) {
-        return dataTypes[i].storageDataType;
+      if (dataTypes[i].id == dataTypeId) {
+        return dataTypes[i];
       }
     }
 
-    return platformus.string.empty;
-  }
-
-  function getSelectedRelationClassId() {
-    return $("#relationClassId").val();
+    return null;
   }
 })(window.platformus = window.platformus || {});
